@@ -5,16 +5,16 @@ export default class Slide {
     this.dist = { finalPosition: 0, startX: 0, moviment: 0, }
   }
 
-  updatePosition(clientX) {
-    this.dist.moviment = (this.dist.startX - clientX) * 2;
-    return this.dist.finalPosition - this.dist.moviment;
-  }
-
   moveSlide(distX) {
     this.dist.movePosition = distX;
     this.slide.style.transform = `translate3d(${distX}px, 0, 0)`;
   }
 
+  updatePosition(clientX) {
+    this.dist.moviment = (this.dist.startX - clientX) * 2;
+    return this.dist.finalPosition - this.dist.moviment;
+  }
+  
   onStart(event) {
     event.preventDefault();
     this.dist.startX = event.clientX;
